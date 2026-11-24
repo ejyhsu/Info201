@@ -1,0 +1,367 @@
+---
+title: "test"
+format: 
+  html:
+    embed-resources: true
+editor: 
+  markdown: 
+    wrap: 72
+---
+
+# Part I: Find the Data
+
+## Story Pitch
+
+A basketball player playing in a professional basketball league overseas
+is frustrated with his current role on the team. Playing time for him is
+scarce, and is only entered into the game for certain situations rather
+than consistently. He’s wondering when he will get an opportunity to
+show off his talent more. After another frustrating outing, the player
+goes home and looks up data on unexpected NBA performances from players
+who took on a similar role to his. The dataset contains the name of the
+player, statistics including but not limited to points, assists,
+rebounds, and steals, the date of the performance, the team the player
+played against, and which career game it was for them. The main data
+points will be the number of points scored and how late into the
+player's career it was.
+
+Through the use of this data, a correlation can be made between the
+player’s experience with playing and a breakout performance, and a
+prediction can be made of when a breakout performance will happen.
+Additionally, with the data, the impact of the performance in connection
+to future factors like pay raises, improvements in life, and trades to
+nicer places can be analyzed. This data is significant because in most
+professional leagues, there is a significant gap in success between
+players who play a certain role on a team, versus a superstar, and a
+person who’s just on the team. Role players still have an impact on the
+team and are important. However, they are still some of the more
+overlooked individuals on a team. For our investigation, we’re choosing
+to take on the perspective of someone in the middle, which is a role
+player, and see if we can make any connections and predictions of said
+player’s career and quality of life afterward.
+
+Most basketball players—regardless of level—at some point in their
+career struggle. Everyone starts at the bottom, and some don’t even make
+it to the top. However, more data analysis of players who have been in
+similar situations can serve as motivation for others experiencing
+hardship and can also be used to make predictions about the
+possibilities of career turnaround, significant changes, and when a
+breakout game will happen. An ‘unexpected performance’ in this case is
+the event of a player scoring a high number of points, atypical to their
+usual performance. In the dataset, every single player is a role player
+or a niche player who did not have much of a spotlight shone on them,
+yet scored a high number of points in contrast to their typical
+performance. For these types of players, and to a normie basketball fan,
+it is often assumed that they will never become a big player or have a
+significant career worth remembering. Despite this, regardless of how
+popular the player is, an ‘unexpected’ scoring game can be life-changing
+for a player, leading to significant career changes such as paycheck
+raises and an increased role on the team. However, this isn’t always the
+case. Through the story of our basketball player, the information taken
+from the dataset will be used to predict a breakout game and whether or
+not the performance likely results in significant changes in the
+player’s career.
+
+### "Find a Dataset"
+
+The Greatest Unexpected NBA Performances\
+https://www.youtube.com/watch?v=jV49bDzkQhY\
+https://github.com/the-pudding/data/tree/master/nba-unexpected
+
+### "Why the Data"
+
+The target audience for our data analysis would most likely be
+basketball fans with an interest in statistics and numbers or people
+with a background or interest in data science, statistics, or any sort
+of data analysis. There is also a small group of people who are both
+basketball fans and statistics fans. Usually, these people do sports
+analytics for either sports betting or for live data during
+intermissions. Standard basketball fans most likely would not be
+interested; they would be more interested in the game itself. Anyone
+who’s interested in statistics, data science, and data analysis would
+most likely be engaged. For this project, we will focus on the small
+group that is sports analytics.
+
+The unexpected is a big interest for statistics in general. True
+“randomness” is incredibly complicated and requires highly intricate
+algorithms just to return a pseudo-random integer. This is what
+separates humans from computers: the ability to raise the unexpected.
+Most basketball players, after playing enough games, have a general
+expected skill. But the interesting stuff, as the video showcases, are
+the players who suddenly have an unexpectedly high output for a game.
+Could there be a pattern in the data?
+
+### "About the Data"
+
+We downloaded our dataset from The Pudding’s GitHub repository. This
+dataset contains 1,703 observations (rows), and each row represents one
+NBA player and their most unexpected game performance. The dataset
+contains 19 features (columns). Some features we could find in another
+dataset include player ID, season, and year. We could use these features
+to connect our dataset with NBA player salary data. Through this, we can
+explore whether players received salary increases after their unexpected
+performances.
+
+## Background Research/Inspiration
+
+1.  Basketball-Reference, \*Glossary: Game Score\*
+    https://www.basketball-reference.com/about/glossary.html#game_score\
+    \
+    The link shows how to turn one game into one number using box-score
+    stats. Our project uses a number like this to measure how far a game
+    is from a player’s normal level.\
+
+    a\. The source uses fixed weights for points, rebounds, assists, and
+    other stats.\
+
+    b.  The source does not directly solve our data question, only
+        providing information on each statistic given and used in
+        basketball.\
+
+2.  Basketball-Reference, \*About Box Plus/Minus (BPM)\*
+    https://www.basketball-reference.com/about/bpm2.html
+
+    a\. The source shows the measure of a player's value compared with
+    the league average.\
+
+    b.  This source used a metric to estimate expected player quality.\
+    c.  Again, only provides the data equivalent of an API for
+        basketball terms and stats.
+
+3.  The Pudding, \*Ranking the Biggest NBA Finals Carry Jobs\*
+    https://pudding.cool/2021/08/nba-carry/\
+    \
+
+    a.  The source shows a player carrying a team over a whole Finals
+        series using RAPTOR WAR.\
+    b.  The source offered a series-level reference to measure the
+        impact.\
+    c.  This does not relate to our topic, it’s just a similar use of
+        the same–if not similar–data.
+
+4.  Sportico, \*Lillard’s 71 Points Just Another in NBA’s Year of
+    Outliers: Data Viz\*
+    https://www.sportico.com/leagues/basketball/2023/damian-lillard-71-points-trail-blazers-rockets-nba-outliers-1234710856/\
+    \
+
+    a.  This source showed many extreme scoring games in one season.\
+    b.  This source used a season-level count of outliers. We used a
+        player-level deviation and then connected it to the season
+        context.\
+    c.  This source analyzes similar data but answers a different
+        question.
+
+5.  Sports Illustrated, \*Sandro Mamukelashvili Breakout vs. Knicks, By
+    the Numbers\*
+    https://www.si.com/nba/knicks/onsi/news/spurs-sandro-mamukelashvili-breakout-new-york-knicks-numbers\
+    \
+
+    a.  The source shows a bench player who had an average of under five
+        points suddenly scoring 34 in a single game. We will be finding
+        extreme scores similar to this scenario using this data.\
+    b.  It's a single case story with narrative context. We will be
+        discussing broader datasets and analyzing all cases.
+
+## Group Agreement
+
+**What are the primary channels you will communicate on? How frequently
+do you plan to communicate synchronously vs. asynchronously? Will your
+meetings be remote or in-person? Have you already exchanged contact
+information? Are there days a team member is not able to participate,
+and how are you accommodating for each other's needs?**
+
+We communicate via an Instagram group chat, and we plan on communicating
+asynchronously throughout the quarter. We didn’t have too many meeting
+plans, but we can meet after class if needed and schedule meetings
+during the week.
+
+**What are your group’s expectations regarding attendance at meetings,
+participation in assignments, communication, and the quality of work?
+How do you intend to address any performance-related issues that may
+arise? How will you resolve team conflicts as a team, and at what point
+do you believe it would be necessary to elevate these types of
+discussions to your TA?**
+
+We expect everyone to communicate if they can’t attend or do parts of
+their assignment, but we also expect everyone to do their part to the
+best of their ability. If conflicts arise, we will discuss it as a group
+and work to resolve it then.
+
+**How does each team member plan to contribute to the overall team's
+learning and success?**
+
+Avery: Find a Dataset, “Why the Data”, helping with Story Pitch, Group
+Agreement\
+Collin: “About the Data”, Group Agreement\
+Yuelin (Jim): Find a Dataset, Background Research/Inspiration\
+Ethan: Story Pitch
+
+# Part II: Data Join
+
+## Importing libraries/packages
+
+```{r}
+library("dplyr")
+library("ggplot2")
+```
+
+## Loading dataframes
+
+```{r}
+the_pudding_df <- read.csv("https://raw.githubusercontent.com/the-pudding/data/master/nba-unexpected/nba.csv", sep = ",")
+bbrID_to_playerID <- read.csv("id-crosswalk.csv")
+kaggle_player_stats_df <- read.csv("PlayerStatistics.csv")
+```
+
+## Joining Data
+
+```{r}
+kaggle_with_bbrID_df <- inner_join(kaggle_player_stats_df, bbrID_to_playerID, join_by(personId == nbaID), relationship = "many-to-many")
+
+kaggle_with_bbrID_df <-
+  kaggle_with_bbrID_df |>
+  mutate(cleanedDates = substr(gameDateTimeEst, 1, 10))
+
+unexpected_players_df <- inner_join(
+  the_pudding_df, kaggle_with_bbrID_df, 
+  join_by(
+    bbrID, 
+    Date == cleanedDates))
+
+total_num_rows <- nrow(unexpected_players_df)
+
+dataframe <- left_join(the_pudding_df, kaggle_with_bbrID_df, join_by(bbrID))
+missing_data_df <-
+  dataframe |>
+  filter(is.na(personId))
+
+estimated_margin_of_error <- 
+  round(nrow(missing_data_df) / nrow(the_pudding_df) * 100, 2)
+paste("Estimated margin of error: ", estimated_margin_of_error, "%")
+```
+
+Columns:
+
+- bbrID, Date, Tm, Opp, TRB, AST, STL, BLK, PTS, GmSc, Season, Playoffs,
+  Year, GameIndex, GmScMovingZ, GmScMovingZTop2Delta, Date2, GmSc2,
+  GmScMovingZ2, firstName, lastName, personId, gameId, gameDateTimeEst,
+  playerteamCity, playerteamName, opponentteamCity, opponentteamName,
+  gameType, gameLabel, gameSubLabel, seriesGameNumber, win, home,
+  numMinutes, points, assists, blocks, steals, fieldGoalsAttempted,
+  fieldGoalsPercentage, threePointersAttempted, threePointersMade,
+  threePointersPercentage, freeThrowsAttempted, freeThrowsMade,
+  freeThrowsPercentage, reboundsDefensive, reboundsOffensive,
+  reboundsTotal, foulsPersonal, turnovers, plusMinusPoints,
+  playerteamId, opponentteamId, comment, startingPosition, gameDate
+
+Total number of rows: `r total_num_rows`
+
+## Examples
+
+### glimpse()
+
+```{r}
+glimpse(unexpected_players_df)
+```
+
+### summary()
+
+```{r}
+summary(unexpected_players_df)
+```
+
+## Thought Process
+
+- Used inner_join() with Kaggle's PlayerStatistics.csv with
+  bbrID_to_player_ID reference CSV provided via email by the data
+  scientist who created The Pudding's dataset (Russell Samora).
+
+- Cleaning dates by removing hour and minute marker from Kaggle's
+  dataset
+
+- Used the [R
+  documentation](https://www.rdocumentation.org/packages/stringr/versions/1.4.0/topics/str_sub)
+  for substr()
+
+- Used inner_join() of Kaggle's dataset to merge with The Pudding
+
+- Troubleshooting
+
+  - Made dataframe with all unsuccessful merges with bbrID
+
+  - Estimated margin of error (I don't know if this is the correct math)
+
+## URLS
+
+The Pudding:
+https://github.com/the-pudding/data/blob/master/nba-unexpected/nba.csv
+
+Kaggle:
+https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores
+
+# Part 3: Data Documentation
+
+The first dataset records the players’ data from that unexpected NBA
+game. To get a detailed understanding of the data structure, let’s take
+a look at the README file of the first dataset on GitHub to understand
+what its columns mean.
+
+GitHub url:
+https://github.com/the-pudding/data/blob/master/nba-unexpected/README.md
+
+The readme file of this dataset not only shows the column names and
+their meanings in detail, but also shows the source of the dataset, how
+it was collected, and the author’s contact information.
+
+The second dataset shows all the games played by every NBA player, and
+the data is more detailed and larger in size. Unfortunately, this
+dataset doesn’t come with a readme file, but as a substitute, you can
+view the dataset online by selecting files in the webpage display
+section, and each column has detailed notes (not the abbreviations in
+the downloadable version). So, using this method, we can understand the
+data in each specific column.
+
+Kaggle url:
+https://www.kaggle.com/datasets/eoinamoore/historical-nba-data-and-player-box-scores?resource=download&select=PlayerStatistics.csv
+
+After merging the two data sets, we decided to pick out some important
+variables as preliminary analysis information. We think
+bbrID(basketball-reference player id), personId(person id), gameId(game
+id), gameDateTimeEst(game date time EST), GmScMovingZ(z-score of game
+from moving average), points(points), opponentteamName(opponent team
+name), playerteamName(player team name), gameType(game type), home(home
+game), numMinutes(minutes played), startingPosition(starting position),
+GameIndex(game number in career), Season(season). The most meaningful
+ones are GmScMovingZ and points, because these two variables directly
+define the ‘unexpected outbreak relative to the usual level’ and are the
+core of the project data. Next are numMinutes, startingPosition, home,
+gameType, opponentteamName, playerteamName, GameIndex, and Season,
+because they are the most useful explanatory variables for analyzing the
+reasons behind unexpected scores.
+
+These columns cover the identifiers needed for merging data, the core
+metrics that define ‘unexpected,’ as well as potential factors like
+playing time, role, home or away games, match types, opponent teams, and
+career stage, which are enough to support analyzing the causes of role
+players’ breakthroughs. We’ll use this data for further analysis (and
+will also appropriately use other columns to help verify or add
+factors).
+
+Limitations and bias: This dataset lacks information on teammates’
+status, coaching decisions and tactical role changes, opponents’
+tactical setups, and environmental factors at the game. It also doesn’t
+include descriptions of players’ condition or events on the day of the
+match. This database is public and highly anonymized, supporting
+privacy, transparency, and explainability. However, it lacks clear
+accountability mechanisms and standards for safe use, and fairness and
+non-discrimination tests are also insufficient (possibly because the
+collected information is biased towards certain
+teams/players/ethnicities, based on personal preferences). Human
+oversight of the technology, professional responsibility, and safeguards
+for promoting human values are also unclear.
+
+In summary, the data does a great job in making information transparent
+and clarifying the meaning of the data, but it lacks an explanation of
+where the data comes from and the criteria for collecting the
+information (for example, what standard counts as an unexpected score
+and can be included in the information).
